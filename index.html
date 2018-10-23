@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Trap Force Simulator</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700|Merriweather:300,400,500,600" rel="stylesheet">
+<script src="trapforces.js"></script>
+</head>
+
+
+
+<body onload="TrapForces.initCanvas();">
+
+<div class="page autopad">
+
+  <div class="title">
+    <h2> TRAPPING FORCE <span class="nobreak">IN OPTICAL TWEEZERS</span> </h2>
+  </div>
+
+<div class="row">
+
+<div class="column" style="">
+  <div style="">
+    <canvas class="app" id="myCanvas" style="">
+    Your browser does not support the HTML5 canvas tag.
+    </canvas>
+  </div>
+
+<span class="nobreak">
+  <div style="display:inline-block; text-align: center; width: 49%;">
+    <input style="width: 90%"
+           type="range" min="8" max="80" step="1" value="17"
+           oninput="TrapForces.setTheta(this.value)"
+           onchange="TrapForces.setTheta(this.value)">
+    </input>
+    <h3 style="font-size: 18px;">NUMERICAL APERTURE</h3>
+    <h1 id="NA"></h1>
+  </div><div style="display: inline-block; text-align: center; width: 49%;">
+    <input style="width: 90%"
+           type="range" min="134" max="200" step="1" value="160"
+           oninput="TrapForces.setRefractiveIndex(this.value)"
+           onchange="TrapForces.setRefractiveIndex(this.value)">
+    </input>
+    <h3 style="font-size: 18px;">BEAD REFRACTIVE INDEX</h3>
+    <h1 id="index"></h1>
+  </div>
+</span>
+</div>
+
+<div class="column autopad">
+
+  This web app illustrates the mechanism by which a restoring trapping force
+  arises from the redistribution of light's momentum produced by the reflection
+  and refraction of light rays on a dielectric sphere.
+  Light rays are s-polarized (linearly polarized in the direction orthogonal
+  to the screen). That is used for computing reflection and transmission
+  coefficients.
+  Each ray is propagated up to order O(r) (r is the reflectivity) meaning that
+  we completely neglect reflection accompanying the third refraction.
+  Each incident ray is split into three components emerging from the sphere
+  respectively after the 1st reflection, the 2nd and the 3rd refraction.
+  Blue arrows represent changes in light linear momentum corresponding
+  to each of the three components.  Gray dashed lines indicate the direction of
+  incident rays.  Red arrow is the resulting force on the particle calculated as
+  the negative total change in light momentum flux (vectorial sum of blue arrows).
+  Drag the bead around and play with different numerical aperture and refractive
+  index values (the refractive index of the surrounding medium is 1.33).
+  Observe that stable axial trapping is only achieved for large NA.
+  <br><br>
+
+
+  <b>References:</b>
+
+  <h3>Forces of a single-beam gradient laser trap on a dielectric sphere in the ray optics regime</h3>
+  <div class="author">A. Ashkin</div>
+  <div class="journal">Biophys J., <b>61</b>, 569, (1992)</div>
+</div>
+
+</div>
+
+<!-- Page close -->
+</div>
+
+</body>
+</html>
